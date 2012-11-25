@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="TicTacToe" default="default" basedir=".">
+    <description>Builds, tests, and runs the project TicTacToe.</description>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+    
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/TicTacToe.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="oata.TicTacToe"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/TicTacToe.jar" fork="true"/>
+    </target>
+    
+</project>
+
